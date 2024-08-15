@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <section>
+        <h1>TO DO LIST</h1>
+        
+        <h2>TODAY PROJECT</h2>
+        <div class="content">
+            <label>DATE</label> <input class="date" type="date">
+            <input id="input" placeholder="Enter task">
+            <button class="button" onclick="result()">ADD</button>
+        </div>
+        <ul id="ulist">
+        </ul>
+        <p>REMAINING DAYS LEFT: <span>5</span></p>
+        <h1 class="animated-header">ALL THE BEST !!</h1>
+    </section>
+    <script>
+        var display = document.getElementById('input');
+        var ul = document.getElementById('ulist');
+    
+        function result() {
+            var taskValue = display.value; 
+    
+            
+            if (taskValue === '') {
+                alert("Please Enter Task!!");
+                return;
+            }
+    
+            
+            var text = document.createElement('li');
+            text.innerHTML = `${taskValue } <button class="deletebtn" onClick='deleteitem(event)'> DELETE </button>`;
+            
+           
+            ul.appendChild(text);
+            
+           
+            display.value = '';
+        }
+    
+        function deleteitem(event) {
+            event.target.parentElement.remove();
+        }
+    </script>
+    
+</body>
+</html>
